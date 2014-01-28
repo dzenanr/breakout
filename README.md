@@ -7,3 +7,5 @@
 
 Based on [canvas tutorial](http://billmill.org/static/canvastutorial/).
 
+[Document](http://goo.gl/HVr309)
+
