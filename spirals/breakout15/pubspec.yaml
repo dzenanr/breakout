@@ -1,5 +1,10 @@
 name: breakout
-homepage: http://learningdart.org/
-description: A sample web application
+version: 1.0.0
+author: Dzenan Ridjanovic
+description: The breakout game with functional and OO spirals.
+homepage: https://github.com/dzenanr/breakout
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+documentation: http://goo.gl/DvSV8j
 dependencies:
   browser: any

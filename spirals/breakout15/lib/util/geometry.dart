@@ -1,6 +1,8 @@
 part of breakout;
 
-circle(context, centerX, centerY, radius, fillColor, [styleColor]) {
+circle(CanvasRenderingContext2D context,
+       num centerX, num centerY, num radius,
+       String fillColor, [String styleColor]) {
   context
     ..fillStyle = fillColor
     ..beginPath()
@@ -12,7 +14,9 @@ circle(context, centerX, centerY, radius, fillColor, [styleColor]) {
   }
 }
 
-rectangle(context, x, y, width, height, fillColor, [styleColor]) {
+rectangle(CanvasRenderingContext2D context,
+          num x, num y, num width, num height,
+          String fillColor, [String styleColor]) {
   context
     ..fillStyle = fillColor
     ..beginPath()..rect(x, y, width, height)..closePath()
