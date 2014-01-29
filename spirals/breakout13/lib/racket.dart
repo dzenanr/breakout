@@ -22,11 +22,11 @@ class Racket {
 
   draw() {
     context
-    ..fillStyle = fillColor
-    ..beginPath()
-    ..rect(x, y, WIDTH, HIGHT)
-    ..closePath()
-    ..fill();
+      ..fillStyle = fillColor
+      ..beginPath()
+      ..rect(x, y, WIDTH, HIGHT)
+      ..closePath()
+      ..fill();
     if (styleColor != null) {
       context
         ..strokeStyle = styleColor
