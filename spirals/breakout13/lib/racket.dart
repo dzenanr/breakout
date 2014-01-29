@@ -60,15 +60,4 @@ class Racket {
       x = min(context.canvas.width - WIDTH, x);
     }
   }
-
-  // Change a position of a racket with the mouse left or right mouvement.
-  /*
-  onMouseMove(event) {
-    if (event.page.x > Board.X && event.page.x < board.width) {
-      x = event.page.x - Board.X - w/2;
-      if (x < Board.X) x = Board.X;
-      if (x > board.width - w) x = board.width - w;
-    }
-  }
-  */
 }

@@ -1,0 +1,5 @@
+name: breakout
+homepage: http://learningdart.org/
+description: A sample web application
+dependencies:
+  browser: any
