@@ -4,14 +4,11 @@ class Ball {
   static const num RADIUS = 10;
 
   CanvasRenderingContext2D context;
-  num x;
-  num y;
+  num x, y;
   String color;
 
-  Ball(this.context, this.color) {
-    x = canvas.width / 2;
-    y = canvas.height / 2;
-  }
+  Ball(this.context, this.color) :
+    x = canvas.width / 2, y = canvas.height / 2;
 
   draw() {
     context
