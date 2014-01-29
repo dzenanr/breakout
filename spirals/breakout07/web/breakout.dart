@@ -14,7 +14,7 @@ start() {
 }
 
 gameLoop(num delta) {
-  if(draw()) {
+  if (draw()) {
     window.animationFrame.then(gameLoop);
   }
 }
