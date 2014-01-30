@@ -1,8 +1,8 @@
 part of breakout;
 
 class Board {
-  static const WHITE = 'ffffff';
-  static const BLACK = '000000';
+  static const String WHITE = 'ffffff';
+  static const String BLACK = '000000';
 
   CanvasElement canvas;
   CanvasRenderingContext2D context;

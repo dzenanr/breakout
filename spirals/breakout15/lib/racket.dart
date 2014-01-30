@@ -3,6 +3,8 @@ part of breakout;
 class Racket {
   static const num HIGHT = 10;
   static const num WIDTH = 75;
+  static const num LEFT_ARROW = 37;
+  static const num RIGHT_ARROW = 39;
 
   Board board;
   num x, y;
@@ -14,13 +16,13 @@ class Racket {
     y = board.canvas.height - HIGHT;
     // Set rightDown or leftDown if the right or left keys are down.
     document.onKeyDown.listen((KeyboardEvent event) {
-      if (event.keyCode == 39)      rightDown = true;
-      else if (event.keyCode == 37) leftDown  = true;
+      if (event.keyCode == RIGHT_ARROW)     rightDown = true;
+      else if (event.keyCode == LEFT_ARROW) leftDown  = true;
     });
     // Unset rightDown or leftDown when the right or left key is released.
     document.onKeyUp.listen((KeyboardEvent event) {
-      if (event.keyCode == 39)      rightDown = false;
-      else if (event.keyCode == 37) leftDown  = false;
+      if (event.keyCode == RIGHT_ARROW)     rightDown = false;
+      else if (event.keyCode == LEFT_ARROW) leftDown  = false;
     });
     // Change a position of the racket with the mouse left or right mouvement.
     document.onMouseMove.listen((MouseEvent event) {
