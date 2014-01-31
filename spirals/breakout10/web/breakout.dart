@@ -50,12 +50,12 @@ bool draw() {
     }
   }
   // have we hit a brick?
-  var rowheight = BRICK_HEIGHT + PADDING;
-  var colwidth = brickw + PADDING;
-  int row = (y / rowheight).floor();
-  int col = (x / colwidth).floor();
+  var rowHeight = BRICK_HEIGHT + PADDING;
+  var colWidth = brickw + PADDING;
+  int row = (y / rowHeight).floor();
+  int col = (x / colWidth).floor();
   // if so, reverse the ball and mark the brick as broken
-  if (y < NROWS * rowheight && row >= 0 && col >= 0
+  if (y < NROWS * rowHeight && row >= 0 && col >= 0
       && bricks[row][col] == 1) {
     dy = -dy;
     bricks[row][col] = 0;

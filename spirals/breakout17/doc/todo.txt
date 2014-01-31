@@ -1,3 +1,9 @@
 To Do
 
+Current spirals
+
+- breakout10: RangeError on hitting the last brick in the second row!?
+
+Future spirals
+
 - the best time per speed saved in a local storage
