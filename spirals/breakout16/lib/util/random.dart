@@ -1,4 +1,4 @@
-part of breakout;
+part of utils;
 
 num randomNum(num max) {
   num random = new Random().nextDouble() * max;

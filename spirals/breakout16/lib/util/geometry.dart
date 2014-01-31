@@ -1,4 +1,4 @@
-part of breakout;
+part of utils;
 
 circle(CanvasRenderingContext2D context,
        num centerX, num centerY, num radius,
