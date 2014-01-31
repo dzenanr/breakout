@@ -7,10 +7,8 @@ class Board {
   CanvasElement canvas;
   CanvasRenderingContext2D context;
 
-  num width;
-  num height;
-  num dx = 2;
-  num dy = 4;
+  num width, height;
+  num speed = 1, dx = 2, dy = 4;
 
   Wall wall;
   Ball ball;
@@ -23,6 +21,21 @@ class Board {
     fill();
     querySelector('#play').onClick.listen((e) {
       init();
+    });
+    SelectElement selectSpeed = querySelector('#speed');
+    selectSpeed.value = '1';
+    selectSpeed.onChange.listen((Event e) {
+      var speed = selectSpeed.value;
+      switch (speed) {
+        case '1':
+          dx = 2; dy = 4;
+          break;
+        case '2':
+          dx = 3; dy = 6;
+          break;
+        case '3':
+          dx = 4; dy = 8;
+      }
     });
   }
 
@@ -77,8 +90,7 @@ class Board {
       } else if (ball.y + dy + Ball.RADIUS > height) return false;
     }
 
-    ball.x += dx;
-    ball.y += dy;
+    ball.x += dx; ball.y += dy;
     return true;
   }
 }

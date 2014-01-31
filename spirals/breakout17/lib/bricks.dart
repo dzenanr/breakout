@@ -1,10 +1,8 @@
 part of breakout;
 
 class Wall {
-  static const NROWS = 5;
-  static const NCOLS = 5;
-  static const BRICK_HEIGHT = 15;
-  static const PADDING = 1;
+  static const num NROWS = 5, NCOLS = 5;
+  static const num BRICK_HEIGHT = 15, PADDING = 1;
 
   Board board;
   num brickWidth;

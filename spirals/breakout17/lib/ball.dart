@@ -8,8 +8,8 @@ class Ball {
   String fillColor, styleColor;
 
   Ball(this.board, this.fillColor, [this.styleColor]) {
-    x = board.canvas.width / 2;
-    y = board.canvas.height / 2;
+    x = board.canvas.width / 4;
+    y = board.canvas.height / 4;
   }
 
   draw() {
