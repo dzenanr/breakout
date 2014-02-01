@@ -2,7 +2,7 @@ To Do
 
 Current spirals
 
-- breakout10: RangeError on hitting the last brick in the second row!?
++ nothing so far
 
 Future spirals
 
