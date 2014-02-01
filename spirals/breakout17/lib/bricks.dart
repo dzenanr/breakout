@@ -26,8 +26,8 @@ class Wall {
     var colWidth = brickWidth + PADDING;
     int row = (ball.y / rowHeight).floor();
     int col = (ball.x / colWidth).floor();
-    if (ball.y < NROWS * rowHeight && row >= 0 && col >= 0 &&
-        bricks[row][col] == 1) {
+    if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
+        ball.y < NROWS * rowHeight && bricks[row][col] == 1) {
       // hit, mark the brick as broken
       bricks[row][col] = 0;
       return true;

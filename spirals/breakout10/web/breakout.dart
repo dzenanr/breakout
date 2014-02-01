@@ -38,6 +38,7 @@ bool draw() {
   circle(x, y, 10, BLACK);
 
   //draw bricks
+  var count = 0;
   for (var i = 0; i < NROWS; i++) {
     for (var j = 0; j < NCOLS; j++) {
       if (bricks[i][j] == 1) {
@@ -46,19 +47,23 @@ bool draw() {
           (i * (BRICK_HEIGHT + PADDING)) + PADDING,
            brickw, BRICK_HEIGHT, BLACK
         );
+        count++;
       }
     }
   }
+  if (count == 0) return false; // user wins
+
   // have we hit a brick?
   var rowHeight = BRICK_HEIGHT + PADDING;
   var colWidth = brickw + PADDING;
   int row = (y / rowHeight).floor();
   int col = (x / colWidth).floor();
-  // if so, reverse the ball and mark the brick as broken
-  if (y < NROWS * rowHeight && row >= 0 && col >= 0
-      && bricks[row][col] == 1) {
-    dy = -dy;
-    bricks[row][col] = 0;
+  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0) {
+    if (y < NROWS * rowHeight && bricks[row][col] == 1) {
+      // if so, reverse the ball and mark the brick as broken
+      dy = -dy;
+      bricks[row][col] = 0;
+    }
   }
 
   // move the paddle if left or right is currently pressed

@@ -27,9 +27,9 @@ bool draw() {
   var colWidth = brickw + PADDING;
   int row = (ball.y / rowHeight).floor();
   int col = (ball.x / colWidth).floor();
-  // if so, reverse the ball and mark the brick as broken
-  if (ball.y < NROWS * rowHeight && row >= 0 && col >= 0
-      && bricks[row][col] == 1) {
+  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
+      ball.y < NROWS * rowHeight && bricks[row][col] == 1) {
+    // if so, reverse the ball and mark the brick as broken
     dy = -dy;
     bricks[row][col] = 0;
   }

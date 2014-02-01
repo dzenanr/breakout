@@ -1,10 +1,10 @@
 part of breakout;
 
 class Wall {
-  static const NROWS = 5;
-  static const NCOLS = 5;
-  static const BRICK_HEIGHT = 15;
-  static const PADDING = 1;
+  static const num NROWS = 5;
+  static const num NCOLS = 5;
+  static const num BRICK_HEIGHT = 15;
+  static const num PADDING = 1;
 
   Board board;
   num brickWidth;
@@ -28,8 +28,8 @@ class Wall {
     var colWidth = brickWidth + PADDING;
     int row = (ball.y / rowHeight).floor();
     int col = (ball.x / colWidth).floor();
-    if (ball.y < NROWS * rowHeight && row >= 0 && col >= 0 &&
-        bricks[row][col] == 1) {
+    if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
+        ball.y < NROWS * rowHeight && bricks[row][col] == 1) {
       // hit, mark the brick as broken
       bricks[row][col] = 0;
       return true;
