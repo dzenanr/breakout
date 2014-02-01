@@ -1,8 +1,5 @@
 part of breakout;
 
-const WHITE = 'ffffff';
-const BLACK = '000000';
-
 CanvasElement canvas;
 var canvasw;
 var canvash;
@@ -21,7 +18,7 @@ initBoard() {
 
 bool drawBoard() {
   clearBoard();
-  drawBall(x, y, 10, WHITE);
+  drawBall();
 
   if (!drawBricks()) return false; // user wins
 
@@ -42,7 +39,7 @@ bool drawBoard() {
   // move the paddle if left or right is currently pressed
   if (rightDown) paddlex += 5;
   else if (leftDown) paddlex -= 5;
-  drawRacket(paddlex, canvash - paddleh, paddlew, paddleh, WHITE, BLACK);
+  drawRacket();
 
   if (x + dx + ballr > canvasw || x + dx - ballr < 0) dx = -dx;
 
@@ -61,14 +58,7 @@ bool drawBoard() {
   return true;
 }
 
-paintBoard() {
-  context
-    ..fillStyle = BLACK
-    ..beginPath()
-    ..rect(0, 0, canvasw, canvash)
-    ..closePath()
-    ..fill();
-}
+paintBoard() => rectangle(0, 0, canvasw, canvash, BLACK);
 
 clearBoard() {
   context.clearRect(0, 0, canvasw, canvash);

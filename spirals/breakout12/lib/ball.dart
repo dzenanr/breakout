@@ -6,4 +6,4 @@ var y = 150;
 var dx = 2;
 var dy = 4;
 
-drawBall(x, y, r, color) => circle(x, y, r, color);
+drawBall() => circle(x, y, ballr, WHITE);

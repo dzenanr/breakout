@@ -5,11 +5,11 @@ const NCOLS = 5;
 const BRICK_HEIGHT = 15;
 const PADDING = 1;
 
-var bricks;
 var brickw;
-var rowColors = ["#ff1c0a", "#fffd0a", "#00a308", "#0008db", "#eb0093"];
+var bricks;
 
 initBricks() {
+  brickw = (canvasw / NCOLS) - 1;
   bricks = new List(NROWS);
   for (var i = 0; i < NROWS; i++) {
     bricks[i] = new List(NCOLS);
@@ -27,7 +27,7 @@ bool drawBricks() {
         rectangle(
           (j * (brickw + PADDING)) + PADDING,
           (i * (BRICK_HEIGHT + PADDING)) + PADDING,
-           brickw, BRICK_HEIGHT, rowColors[i]
+           brickw, BRICK_HEIGHT, colors[i]
         );
         count++;
       }

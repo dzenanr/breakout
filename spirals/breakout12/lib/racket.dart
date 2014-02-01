@@ -8,15 +8,14 @@ var leftDown = false;
 
 initRacket() {
   paddlex = canvasw / 2;
-  brickw = (canvasw / NCOLS) - 1;
 
   document.onKeyDown.listen(onKeyDown);
   document.onKeyUp.listen(onKeyUp);
   document.onMouseMove.listen(onMouseMove);
 }
 
-drawRacket(x, y, w, h, fillColor, [styleColor]) =>
-  rectangle(x, y, w, h, fillColor, [styleColor]);
+drawRacket() =>
+  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, WHITE, BLACK);
 
 // set rightDown or leftDown if the right or left keys are down
 onKeyDown(event) {
