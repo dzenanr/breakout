@@ -18,7 +18,7 @@ class Board {
     context = canvas.getContext("2d");
     width = canvas.width;
     height = canvas.height;
-    fill();
+    blacken();
     querySelector('#play').onClick.listen((e) {
       init();
     });
@@ -53,20 +53,12 @@ class Board {
     }
   }
 
-  fill() {
-    context
-    ..fillStyle = BLACK
-    ..beginPath()..rect(0, 0, width, height)..closePath()
-    ..fill();
-  }
-
-  clear() {
-    context.clearRect(0, 0, width, height);
-    fill();
+  blacken() {
+    rectangle(context, 0, 0, width, height, BLACK);
   }
 
   bool draw() {
-    clear();
+    blacken();
     ball.draw();
     racket.draw();
     if (!wall.draw()) return false; // user wins
