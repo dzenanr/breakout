@@ -6,4 +6,5 @@ Current spirals
 
 Future spirals
 
-- the best time per speed saved in a local storage
+- paint each brick with a random color
+- save the best time per speed in the local storage
