@@ -3,11 +3,16 @@ part of breakout;
 var paddlex;
 var paddleh = 10;
 var paddlew = 75;
+var paddleColor;
+var paddleOutline;
+
 var rightDown = false;
 var leftDown = false;
 
-initRacket() {
+initRacket(color, outline) {
   paddlex = canvasw / 2;
+  paddleColor = color;
+  paddleOutline = outline;
 
   document.onKeyDown.listen(onKeyDown);
   document.onKeyUp.listen(onKeyUp);

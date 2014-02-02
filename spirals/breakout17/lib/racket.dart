@@ -9,9 +9,9 @@ class Racket {
   Board board;
   num x, y;
   bool rightDown = false, leftDown = false;
-  String fillColor, styleColor;
+  String color, outline;
 
-  Racket(this.board, this.fillColor, [this.styleColor]) {
+  Racket(this.board, this.color, [this.outline]) {
     x = board.canvas.width / 2;
     y = board.canvas.height - HIGHT;
     // Set rightDown or leftDown if the right or left keys are down.
@@ -36,6 +36,6 @@ class Racket {
   }
 
   draw() {
-    rectangle(board.context, x, y, WIDTH, HIGHT, fillColor, styleColor);
+    rectangle(board.context, x, y, WIDTH, HIGHT, color, outline);
   }
 }

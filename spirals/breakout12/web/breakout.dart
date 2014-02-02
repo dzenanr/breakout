@@ -4,8 +4,9 @@ import 'dart:html';
 
 start() {
   initBoard();
-  initRacket();
   initBricks();
+  initBall(WHITE, YELLOW);
+  initRacket(WHITE, BLACK);
   // redraw
   window.animationFrame.then(gameLoop);
 }

@@ -1,12 +1,17 @@
 part of breakout;
 
-circle(x, y, r, color) {
+circle(x, y, r, String fillColor, [String styleColor]) {
   context
-    ..fillStyle = color
+    ..fillStyle = fillColor
     ..beginPath()
     ..arc(x, y, r, 0, PI * 2, true)
     ..closePath()
     ..fill();
+  if (styleColor != null) {
+    context
+      ..strokeStyle = styleColor
+      ..stroke();
+  }
 }
 
 rectangle(x, y, w, h, fillColor, [styleColor]) {

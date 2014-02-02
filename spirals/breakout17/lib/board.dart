@@ -1,8 +1,9 @@
 part of breakout;
 
 class Board {
-  static const String WHITE = 'ffffff';
-  static const String BLACK = '000000';
+  static const String WHITE =  '#ffffff';
+  static const String BLACK =  '#000000';
+  static const String YELLOW = '#ffff00';
 
   CanvasElement canvas;
   CanvasRenderingContext2D context;
@@ -41,7 +42,7 @@ class Board {
 
   init() {
     wall = new Wall(this);
-    ball = new Ball(this, WHITE);
+    ball = new Ball(this, WHITE, YELLOW);
     racket = new Racket(this, WHITE, BLACK);
     // redraw
     window.animationFrame.then(gameLoop);

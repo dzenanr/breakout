@@ -41,16 +41,16 @@ bool drawBoard() {
   else if (leftDown) paddlex -= 5;
   drawRacket();
 
-  if (x + dx + ballr > canvasw || x + dx - ballr < 0) dx = -dx;
+  if (x + dx + radius > canvasw || x + dx - radius < 0) dx = -dx;
 
-  if (y + dy - ballr < 0) dy = -dy;
-  else if (y + dy + ballr > canvash - paddleh) {
+  if (y + dy - radius < 0) dy = -dy;
+  else if (y + dy + radius > canvash - paddleh) {
     if (x > paddlex && x < paddlex + paddlew) {
       // move the ball differently based on where it hits the paddle
       dx = 8 * ((x- (paddlex + paddlew / 2)) / paddlew);
       dy = -dy;
     }
-    else if (y + dy + ballr > canvash) return false; // game over
+    else if (y + dy + radius > canvash) return false; // game over
   }
 
   x += dx;
@@ -61,6 +61,6 @@ bool drawBoard() {
 paintBoard() => rectangle(0, 0, canvasw, canvash, BLACK);
 
 clearBoard() {
-  context.clearRect(0, 0, canvasw, canvash);
+  rectangle(0, 0, canvasw, canvash, WHITE);
   paintBoard();
 }

@@ -5,14 +5,14 @@ class Ball {
 
   Board board;
   num x, y;
-  String fillColor, styleColor;
+  String color, outline;
 
-  Ball(this.board, this.fillColor, [this.styleColor]) {
+  Ball(this.board, this.color, [this.outline]) {
     x = board.canvas.width / 4;
     y = board.canvas.height / 4;
   }
 
   draw() {
-    circle(board.context, x, y, RADIUS, fillColor);
+    circle(board.context, x, y, RADIUS, color, outline);
   }
 }
