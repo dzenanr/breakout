@@ -1,9 +1,9 @@
 part of breakout;
 
 class Board {
-  static const String WHITE =  '#ffffff';
-  static const String BLACK =  '#000000';
-  static const String YELLOW = '#ffff00';
+  static const String white =  '#ffffff';
+  static const String black =  '#000000';
+  static const String yellow = '#ffff00';
 
   CanvasElement canvas;
   CanvasRenderingContext2D context;
@@ -29,11 +29,9 @@ class Board {
       var speed = selectSpeed.value;
       switch (speed) {
         case '1':
-          dx = 2; dy = 4;
-          break;
+          dx = 2; dy = 4; break;
         case '2':
-          dx = 3; dy = 6;
-          break;
+          dx = 3; dy = 6; break;
         case '3':
           dx = 4; dy = 8;
       }
@@ -42,8 +40,8 @@ class Board {
 
   init() {
     wall = new Wall(this);
-    ball = new Ball(this, WHITE, YELLOW);
-    racket = new Racket(this, WHITE, BLACK);
+    ball = new Ball(this, white, yellow);
+    racket = new Racket(this, white, black);
     // redraw
     window.animationFrame.then(gameLoop);
   }
@@ -55,7 +53,7 @@ class Board {
   }
 
   clear() {
-    rectangle(context, 0, 0, width, height, BLACK);
+    rectangle(context, 0, 0, width, height, black);
   }
 
   bool draw() {
