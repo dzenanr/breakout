@@ -33,17 +33,17 @@ onKeyUp(evt) {
 
 bool draw() {
   clear();
-  circle(x, y, 10, BLACK);
+  circle(x, y, 10, black);
 
   // move the paddle if left or right is currently pressed
   if (rightDown) paddlex += 5;
   else if (leftDown) paddlex -= 5;
-  rectangle(paddlex, HEIGHT - paddleh, paddlew, paddleh, BLACK);
+  rectangle(paddlex, height - paddleh, paddlew, paddleh, black);
 
-  if (x + dx > WIDTH || x + dx < 0) dx = -dx;
+  if (x + dx > width || x + dx < 0) dx = -dx;
 
   if (y + dy < 0) dy = -dy;
-  else if (y + dy > HEIGHT) {
+  else if (y + dy > height) {
     if (x > paddlex && x < paddlex + paddlew) dy = -dy;
     else return false; // game over
   }

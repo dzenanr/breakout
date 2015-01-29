@@ -27,16 +27,16 @@ bool draw() {
   if (racket.rightDown) racket.x += 5;
   else if (racket.leftDown) racket.x -= 5;
 
-  if (ball.x + dx + Ball.RADIUS > canvas.width ||
-      ball.x + dx - Ball.RADIUS < 0) dx = -dx;
+  if (ball.x + dx + Ball.radius > canvas.width ||
+      ball.x + dx - Ball.radius < 0) dx = -dx;
 
-  if (ball.y + dy - Ball.RADIUS < 0) dy = -dy;
-  else if (ball.y + dy + Ball.RADIUS > canvas.height - Racket.HIGHT) {
-    if (ball.x > racket.x && ball.x < racket.x + Racket.WIDTH) {
+  if (ball.y + dy - Ball.radius < 0) dy = -dy;
+  else if (ball.y + dy + Ball.radius > canvas.height - Racket.height) {
+    if (ball.x > racket.x && ball.x < racket.x + Racket.width) {
       // move the ball differently based on where it hits the racket
-      dx = 8 * ((ball.x- (racket.x + Racket.WIDTH / 2)) / Racket.WIDTH);
+      dx = 8 * ((ball.x- (racket.x + Racket.width / 2)) / Racket.width);
       dy = -dy;
-    } else if (ball.y + dy + Ball.RADIUS > canvas.height) return false;
+    } else if (ball.y + dy + Ball.radius > canvas.height) return false;
   }
 
   ball.x += dx;

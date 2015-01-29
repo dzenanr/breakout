@@ -1,7 +1,7 @@
 part of breakout;
 
 class Ball {
-  static const num RADIUS = 10;
+  static const num radius = 10;
 
   CanvasRenderingContext2D context;
   num x, y;
@@ -14,7 +14,7 @@ class Ball {
     context
       ..fillStyle = color
       ..beginPath()
-      ..arc(x, y, RADIUS, 0, PI * 2, true)
+      ..arc(x, y, radius, 0, PI * 2, true)
       ..closePath()
       ..fill();
   }

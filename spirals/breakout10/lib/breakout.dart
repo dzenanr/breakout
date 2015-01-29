@@ -3,8 +3,8 @@ library breakout;
 import 'dart:html';
 import 'dart:math';
 
-const WHITE = 'ffffff';
-const BLACK = '000000';
+const white = '#ffffff';
+const black = '#000000';
 
 CanvasElement canvas;
 var canvasw;

@@ -1,10 +1,10 @@
 part of breakout;
 
 class Racket {
-  static const num HIGHT = 10;
-  static const num WIDTH = 75;
-  static const num LEFT_ARROW = 37;
-  static const num RIGHT_ARROW = 39;
+  static const num height = 10;
+  static const num width = 75;
+  static const num leftArrow = 37;
+  static const num rightArrow = 39;
 
   Board board;
   num x, y;
@@ -13,29 +13,29 @@ class Racket {
 
   Racket(this.board, this.color, [this.outline]) {
     x = board.canvas.width / 2;
-    y = board.canvas.height - HIGHT;
+    y = board.canvas.height - height;
     // Set rightDown or leftDown if the right or left keys are down.
     document.onKeyDown.listen((KeyboardEvent event) {
-      if (event.keyCode == RIGHT_ARROW)     rightDown = true;
-      else if (event.keyCode == LEFT_ARROW) leftDown  = true;
+      if (event.keyCode == rightArrow)     rightDown = true;
+      else if (event.keyCode == leftArrow) leftDown  = true;
     });
     // Unset rightDown or leftDown when the right or left key is released.
     document.onKeyUp.listen((KeyboardEvent event) {
-      if (event.keyCode == RIGHT_ARROW)     rightDown = false;
-      else if (event.keyCode == LEFT_ARROW) leftDown  = false;
+      if (event.keyCode == rightArrow)     rightDown = false;
+      else if (event.keyCode == leftArrow) leftDown  = false;
     });
     // Change a position of the racket with the mouse left or right mouvement.
     document.onMouseMove.listen((MouseEvent event) {
       var canvasMinX = board.canvas.offset.left;
       var canvasMaxX = canvasMinX + board.canvas.width;
       if (event.page.x > canvasMinX && event.page.x < canvasMaxX) {
-        x = max(event.page.x - canvasMinX - (WIDTH / 2), 0);
-        x = min(board.canvas.width - WIDTH, x);
+        x = max(event.page.x - canvasMinX - (width / 2), 0);
+        x = min(board.canvas.width - width, x);
       }
     });
   }
 
   draw() {
-    rectangle(board.context, x, y, WIDTH, HIGHT, color, outline);
+    rectangle(board.context, x, y, width, height, color, outline);
   }
 }

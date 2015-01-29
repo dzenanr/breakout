@@ -1,7 +1,7 @@
 part of breakout;
 
 class Ball {
-  static const num RADIUS = 10;
+  static const num radius = 10;
 
   Board board;
   num x, y;
@@ -13,6 +13,6 @@ class Ball {
   }
 
   draw() {
-    circle(board.context, x, y, RADIUS, fillColor);
+    circle(board.context, x, y, radius, fillColor);
   }
 }

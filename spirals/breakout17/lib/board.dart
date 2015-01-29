@@ -1,8 +1,8 @@
 part of breakout;
 
 class Board {
-  static const String white =  '#ffffff';
-  static const String black =  '#000000';
+  static const String white  = '#ffffff';
+  static const String black  = '#000000';
   static const String yellow = '#ffff00';
 
   CanvasElement canvas;
@@ -69,16 +69,16 @@ class Board {
     if (racket.rightDown) racket.x += 5;
     else if (racket.leftDown) racket.x -= 5;
 
-    if (ball.x + dx + Ball.RADIUS > width ||
-        ball.x + dx - Ball.RADIUS < 0) dx = -dx;
+    if (ball.x + dx + Ball.radius > width ||
+        ball.x + dx - Ball.radius < 0) dx = -dx;
 
-    if (ball.y + dy - Ball.RADIUS < 0) dy = -dy;
-    else if (ball.y + dy + Ball.RADIUS > height - Racket.HIGHT) {
-      if (ball.x > racket.x && ball.x < racket.x + Racket.WIDTH) {
+    if (ball.y + dy - Ball.radius < 0) dy = -dy;
+    else if (ball.y + dy + Ball.radius > height - Racket.height) {
+      if (ball.x > racket.x && ball.x < racket.x + Racket.width) {
         // Move the ball differently based on where it hits the racket.
-        dx = 8 * ((ball.x- (racket.x + Racket.WIDTH / 2)) / Racket.WIDTH);
+        dx = 8 * ((ball.x- (racket.x + Racket.width / 2)) / Racket.width);
         dy = -dy;
-      } else if (ball.y + dy + Ball.RADIUS > height) return false;
+      } else if (ball.y + dy + Ball.radius > height) return false;
     }
 
     ball.x += dx; ball.y += dy;

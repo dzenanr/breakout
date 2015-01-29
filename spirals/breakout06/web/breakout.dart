@@ -15,10 +15,10 @@ gameLoop(num delta) {
 
 draw() {
   clear();
-  circle(x, y, 10, BLACK);
+  circle(x, y, 10, black);
 
-  if (x + dx > WIDTH || x + dx < 0) dx = -dx;
-  if (y + dy > HEIGHT || y + dy < 0) dy = -dy;
+  if (x + dx > width || x + dx < 0) dx = -dx;
+  if (y + dy > height || y + dy < 0) dy = -dy;
 
   x += dx;
   y += dy;

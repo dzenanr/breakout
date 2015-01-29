@@ -25,12 +25,12 @@ bool drawBoard() {
   // have we hit a brick?
   // to learn about real collision detection:
   // http://www.metanetsoftware.com/
-  var rowHeight = BRICK_HEIGHT + PADDING;
-  var colWidth = brickw + PADDING;
+  var rowHeight = brickHeight + padding;
+  var colWidth = brickw + padding;
   int row = (y / rowHeight).floor();
   int col = (x / colWidth).floor();
-  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
-      y < NROWS * rowHeight && bricks[row][col] == 1) {
+  if (row < rowCount && col < colCount && row >= 0 && col >= 0 &&
+      y < rowCount * rowHeight && bricks[row][col] == 1) {
     // if so, reverse the ball and mark the brick as broken
     dy = -dy;
     bricks[row][col] = 0;
@@ -58,9 +58,9 @@ bool drawBoard() {
   return true;
 }
 
-paintBoard() => rectangle(0, 0, canvasw, canvash, BLACK);
+paintBoard() => rectangle(0, 0, canvasw, canvash, black);
 
 clearBoard() {
-  rectangle(0, 0, canvasw, canvash, WHITE);
+  rectangle(0, 0, canvasw, canvash, white);
   paintBoard();
 }

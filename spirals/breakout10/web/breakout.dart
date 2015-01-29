@@ -2,10 +2,10 @@ import 'package:breakout/breakout.dart';
 
 import 'dart:html';
 
-var NROWS = 5;
-var NCOLS = 5;
-var BRICK_HEIGHT = 15;
-var PADDING = 1;
+var rowCount = 5;
+var colCount = 5;
+var brickHeight = 15;
+var padding = 1;
 var brickw;
 var bricks;
 
@@ -23,11 +23,11 @@ gameLoop(num delta) {
 }
 
 _initBricks() {
-  brickw = (canvasw / NCOLS) - 1;
-  bricks = new List(NROWS);
-  for (var i = 0; i < NROWS; i++) {
-    bricks[i] = new List(NCOLS);
-    for (var j = 0; j < NCOLS; j++) {
+  brickw = (canvasw / colCount) - 1;
+  bricks = new List(rowCount);
+  for (var i = 0; i < rowCount; i++) {
+    bricks[i] = new List(colCount);
+    for (var j = 0; j < colCount; j++) {
       bricks[i][j] = 1;
     }
   }
@@ -35,17 +35,17 @@ _initBricks() {
 
 bool draw() {
   clear();
-  circle(x, y, 10, BLACK);
+  circle(x, y, 10, black);
 
   //draw bricks
   var count = 0;
-  for (var i = 0; i < NROWS; i++) {
-    for (var j = 0; j < NCOLS; j++) {
+  for (var i = 0; i < rowCount; i++) {
+    for (var j = 0; j < colCount; j++) {
       if (bricks[i][j] == 1) {
         rectangle(
-          (j * (brickw + PADDING)) + PADDING,
-          (i * (BRICK_HEIGHT + PADDING)) + PADDING,
-           brickw, BRICK_HEIGHT, BLACK
+          (j * (brickw + padding)) + padding,
+          (i * (brickHeight + padding)) + padding,
+           brickw, brickHeight, black
         );
         count++;
       }
@@ -54,12 +54,12 @@ bool draw() {
   if (count == 0) return false; // user wins
 
   // have we hit a brick?
-  var rowHeight = BRICK_HEIGHT + PADDING;
-  var colWidth = brickw + PADDING;
+  var rowHeight = brickHeight + padding;
+  var colWidth = brickw + padding;
   int row = (y / rowHeight).floor();
   int col = (x / colWidth).floor();
-  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0) {
-    if (y < NROWS * rowHeight && bricks[row][col] == 1) {
+  if (row < rowCount && col < colCount && row >= 0 && col >= 0) {
+    if (y < rowCount * rowHeight && bricks[row][col] == 1) {
       // if so, reverse the ball and mark the brick as broken
       dy = -dy;
       bricks[row][col] = 0;
@@ -69,7 +69,7 @@ bool draw() {
   // move the paddle if left or right is currently pressed
   if (rightDown) paddlex += 5;
   else if (leftDown) paddlex -= 5;
-  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, BLACK);
+  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, black);
 
   if (x + dx > canvasw || x + dx < 0) dx = -dx;
 

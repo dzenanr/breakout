@@ -20,7 +20,7 @@ initRacket(color, outline) {
 }
 
 drawRacket() =>
-  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, WHITE, BLACK);
+  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, white, black);
 
 // set rightDown or leftDown if the right or left keys are down
 onKeyDown(event) {

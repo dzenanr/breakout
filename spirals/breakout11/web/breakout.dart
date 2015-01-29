@@ -16,19 +16,19 @@ gameLoop(num delta) {
 
 bool draw() {
   clear();
-  circle(x, y, 10, WHITE);
+  circle(x, y, 10, white);
 
   if (!drawBricks()) return false; // user wins
 
   // have we hit a brick?
   // to learn about real collision detection:
   // http://www.metanetsoftware.com/
-  var rowHeight = BRICK_HEIGHT + PADDING;
-  var colWidth = brickw + PADDING;
+  var rowHeight = brickHeight + padding;
+  var colWidth = brickw + padding;
   int row = (y / rowHeight).floor();
   int col = (x / colWidth).floor();
-  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
-      y < NROWS * rowHeight && bricks[row][col] == 1) {
+  if (row < rowCount && col < colCount && row >= 0 && col >= 0 &&
+      y < rowCount * rowHeight && bricks[row][col] == 1) {
     // if so, reverse the ball and mark the brick as broken
     dy = -dy;
     bricks[row][col] = 0;
@@ -37,7 +37,7 @@ bool draw() {
   // move the paddle if left or right is currently pressed
   if (rightDown) paddlex += 5;
   else if (leftDown) paddlex -= 5;
-  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, WHITE, BLACK);
+  rectangle(paddlex, canvash - paddleh, paddlew, paddleh, white, black);
 
   if (x + dx + ballr > canvasw || x + dx - ballr < 0) dx = -dx;
 

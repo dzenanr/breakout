@@ -6,12 +6,12 @@ import 'dart:math';
 part 'ball.dart';
 part 'racket.dart';
 
-const WHITE = 'ffffff';
-const BLACK = '000000';
-const NROWS = 5;
-const NCOLS = 5;
-const BRICK_HEIGHT = 15;
-const PADDING = 1;
+const white = '#ffffff';
+const black = '#000000';
+const rowCount = 5;
+const colCount = 5;
+const brickHeight = 15;
+const padding = 1;
 
 var rowColors = ["#ff1c0a", "#fffd0a", "#00a308", "#0008db", "#eb0093"];
 
@@ -30,17 +30,17 @@ var dy = 4;
 init() {
   canvas = querySelector('#canvas');
   context = canvas.getContext("2d");
-  brickw = (canvas.width / NCOLS) - 1;
+  brickw = (canvas.width / colCount) - 1;
   _initBricks();
-  ball = new Ball(context, WHITE);
-  racket = new Racket(context, WHITE, BLACK);
+  ball = new Ball(context, white);
+  racket = new Racket(context, white, black);
 }
 
 _initBricks() {
-  bricks = new List(NROWS);
-  for (var i = 0; i < NROWS; i++) {
-    bricks[i] = new List(NCOLS);
-    for (var j = 0; j < NCOLS; j++) {
+  bricks = new List(rowCount);
+  for (var i = 0; i < rowCount; i++) {
+    bricks[i] = new List(colCount);
+    for (var j = 0; j < colCount; j++) {
       bricks[i][j] = 1;
     }
   }
@@ -48,13 +48,13 @@ _initBricks() {
 
 bool drawBricks() {
   var count = 0;
-  for (var i = 0; i < NROWS; i++) {
-    for (var j = 0; j < NCOLS; j++) {
+  for (var i = 0; i < rowCount; i++) {
+    for (var j = 0; j < colCount; j++) {
       if (bricks[i][j] == 1) {
         rectangle(
-          (j * (brickw + PADDING)) + PADDING,
-          (i * (BRICK_HEIGHT + PADDING)) + PADDING,
-           brickw, BRICK_HEIGHT, rowColors[i]
+          (j * (brickw + padding)) + padding,
+          (i * (brickHeight + padding)) + padding,
+           brickw, brickHeight, rowColors[i]
         );
         count++;
       }
@@ -80,7 +80,7 @@ rectangle(x, y, w, h, fillColor, [styleColor]) {
 
 board() {
   context
-    ..fillStyle = BLACK
+    ..fillStyle = black
     ..beginPath()
     ..rect(0, 0, canvas.width, canvas.height)
     ..closePath()

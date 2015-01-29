@@ -2,10 +2,10 @@ import 'dart:html';
 import 'dart:math';
 
 // begin library code
-var WHITE = 'ffffff';
-var BLACK = '000000';
-var WIDTH;
-var HEIGHT;
+var white = '#ffffff';
+var black = '#000000';
+var width;
+var height;
 
 var x = 150;
 var y = 150;
@@ -15,8 +15,8 @@ var ctx;
 
 init() {
   CanvasElement canvas = querySelector('#canvas');
-  WIDTH = canvas.width;
-  HEIGHT = canvas.height;
+  width = canvas.width;
+  height = canvas.height;
   ctx = canvas.getContext("2d");
   // redraw
   window.animationFrame.then(gameLoop);
@@ -45,20 +45,20 @@ circle(x, y, r, color) {
 
 border() {
   ctx.beginPath();
-  ctx.rect(0, 0, WIDTH, HEIGHT);
+  ctx.rect(0, 0, width, height);
   ctx.closePath();
   ctx.stroke();
 }
 
 clear() {
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  ctx.clearRect(0, 0, width, height);
   border();
 }
 // end library code
 
 draw() {
   clear();
-  circle(x, y, 10, BLACK);
+  circle(x, y, 10, black);
 
   x += dx;
   y += dy;

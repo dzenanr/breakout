@@ -1,8 +1,8 @@
 part of breakout;
 
 class Racket {
-  static const num HIGHT = 10;
-  static const num WIDTH = 75;
+  static const num height = 10;
+  static const num width = 75;
 
   CanvasElement canvas;
   CanvasRenderingContext2D context;
@@ -14,7 +14,7 @@ class Racket {
   Racket(this.context, this.fillColor, [this.styleColor]) {
     canvas = context.canvas;
     x = canvas.width / 2;
-    y = canvas.height - HIGHT;
+    y = canvas.height - height;
     document.onKeyDown.listen(onKeyDown);
     document.onKeyUp.listen(onKeyUp);
     document.onMouseMove.listen(onMouseMove);
@@ -24,7 +24,7 @@ class Racket {
     context
       ..fillStyle = fillColor
       ..beginPath()
-      ..rect(x, y, WIDTH, HIGHT)
+      ..rect(x, y, width, height)
       ..closePath()
       ..fill();
     if (styleColor != null) {
@@ -56,8 +56,8 @@ class Racket {
     var canvasMinX = canvas.offset.left;
     var canvasMaxX = canvasMinX + canvas.width;
     if (event.page.x > canvasMinX && event.page.x < canvasMaxX) {
-      x = max(event.page.x - canvasMinX - (WIDTH / 2), 0);
-      x = min(context.canvas.width - WIDTH, x);
+      x = max(event.page.x - canvasMinX - (width / 2), 0);
+      x = min(context.canvas.width - width, x);
     }
   }
 }

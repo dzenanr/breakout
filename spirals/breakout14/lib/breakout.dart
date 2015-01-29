@@ -7,8 +7,8 @@ part 'bricks.dart';
 part 'ball.dart';
 part 'racket.dart';
 
-const WHITE = 'ffffff';
-const BLACK = '000000';
+const white = '#ffffff';
+const black = '#000000';
 
 CanvasElement canvas;
 var context;
@@ -24,13 +24,13 @@ init() {
   canvas = querySelector('#canvas');
   context = canvas.getContext("2d");
   wall = new Wall(context);
-  ball = new Ball(context, WHITE);
-  racket = new Racket(context, WHITE, BLACK);
+  ball = new Ball(context, white);
+  racket = new Racket(context, white, black);
 }
 
 board() {
   context
-    ..fillStyle = BLACK
+    ..fillStyle = black
     ..beginPath()
     ..rect(0, 0, canvas.width, canvas.height)
     ..closePath()

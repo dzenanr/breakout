@@ -3,10 +3,10 @@ library breakout;
 import 'dart:html';
 import 'dart:math';
 
-var WHITE = 'ffffff';
-var BLACK = '000000';
-var WIDTH;
-var HEIGHT;
+var white = '#ffffff';
+var black = '#000000';
+var width;
+var height;
 
 var context;
 
@@ -21,10 +21,10 @@ var paddlew = 75;
 
 init() {
   CanvasElement canvas = querySelector('#canvas');
-  WIDTH = canvas.width;
-  HEIGHT = canvas.height;
+  width = canvas.width;
+  height = canvas.height;
   context = canvas.getContext("2d");
-  paddlex = WIDTH / 2;
+  paddlex = width / 2;
 }
 
 rectangle(x, y, w, h, color) {
@@ -48,12 +48,12 @@ circle(x, y, r, color) {
 border() {
   context
     ..beginPath()
-    ..rect(0, 0, WIDTH, HEIGHT)
+    ..rect(0, 0, width, height)
     ..closePath()
     ..stroke();
 }
 
 clear() {
-  context.clearRect(0, 0, WIDTH, HEIGHT);
+  context.clearRect(0, 0, width, height);
   border();
 }

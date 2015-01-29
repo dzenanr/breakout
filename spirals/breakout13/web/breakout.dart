@@ -23,12 +23,12 @@ bool draw() {
   // have we hit a brick?
   // to learn about real collision detection:
   // http://www.metanetsoftware.com/
-  var rowHeight = BRICK_HEIGHT + PADDING;
-  var colWidth = brickw + PADDING;
+  var rowHeight = brickHeight + padding;
+  var colWidth = brickw + padding;
   int row = (ball.y / rowHeight).floor();
   int col = (ball.x / colWidth).floor();
-  if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
-      ball.y < NROWS * rowHeight && bricks[row][col] == 1) {
+  if (row < rowCount && col < colCount && row >= 0 && col >= 0 &&
+      ball.y < rowCount * rowHeight && bricks[row][col] == 1) {
     // if so, reverse the ball and mark the brick as broken
     dy = -dy;
     bricks[row][col] = 0;
@@ -38,16 +38,16 @@ bool draw() {
   if (racket.rightDown) racket.x += 5;
   else if (racket.leftDown) racket.x -= 5;
 
-  if (ball.x + dx + Ball.RADIUS > canvas.width ||
-      ball.x + dx - Ball.RADIUS < 0) dx = -dx;
+  if (ball.x + dx + Ball.radius > canvas.width ||
+      ball.x + dx - Ball.radius < 0) dx = -dx;
 
-  if (ball.y + dy - Ball.RADIUS < 0) dy = -dy;
-  else if (ball.y + dy + Ball.RADIUS > canvas.height - Racket.HIGHT) {
-    if (ball.x > racket.x && ball.x < racket.x + Racket.WIDTH) {
+  if (ball.y + dy - Ball.radius < 0) dy = -dy;
+  else if (ball.y + dy + Ball.radius > canvas.height - Racket.height) {
+    if (ball.x > racket.x && ball.x < racket.x + Racket.width) {
       // move the ball differently based on where it hits the racket
-      dx = 8 * ((ball.x- (racket.x + Racket.WIDTH / 2)) / Racket.WIDTH);
+      dx = 8 * ((ball.x- (racket.x + Racket.width / 2)) / Racket.width);
       dy = -dy;
-    } else if (ball.y + dy + Ball.RADIUS > canvas.height) return false;
+    } else if (ball.y + dy + Ball.radius > canvas.height) return false;
   }
 
   ball.x += dx;

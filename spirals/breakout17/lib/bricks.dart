@@ -1,20 +1,20 @@
 part of breakout;
 
 class Wall {
-  static const num NROWS = 5, NCOLS = 5;
-  static const num BRICK_HEIGHT = 15, PADDING = 1;
+  static const num rowCount = 5, colCount = 5;
+  static const num brickHeight = 15, padding = 1;
 
   Board board;
   num brickWidth;
-  var bricks = new List(NROWS);
-  var brickRowColors = new List(NROWS);
+  var bricks = new List(rowCount);
+  var brickRowColors = new List(rowCount);
 
   Wall(this.board) {
-    brickWidth = (board.canvas.width / NCOLS) - 1;
-    for (var i = 0; i < NROWS; i++) {
-      bricks[i] = new List(NCOLS);
+    brickWidth = (board.canvas.width / colCount) - 1;
+    for (var i = 0; i < rowCount; i++) {
+      bricks[i] = new List(colCount);
       brickRowColors[i] = randomColorCode();
-      for (var j = 0; j < NCOLS; j++) {
+      for (var j = 0; j < colCount; j++) {
         bricks[i][j] = 1;
       }
     }
@@ -22,12 +22,12 @@ class Wall {
 
   // collision detection: http://www.metanetsoftware.com/
   bool hitBy(Ball ball) {
-    var rowHeight = BRICK_HEIGHT + PADDING;
-    var colWidth = brickWidth + PADDING;
+    var rowHeight = brickHeight + padding;
+    var colWidth = brickWidth + padding;
     int row = (ball.y / rowHeight).floor();
     int col = (ball.x / colWidth).floor();
-    if (row < NROWS && col < NCOLS && row >= 0 && col >= 0 &&
-        ball.y < NROWS * rowHeight && bricks[row][col] == 1) {
+    if (row < rowCount && col < colCount && row >= 0 && col >= 0 &&
+        ball.y < rowCount * rowHeight && bricks[row][col] == 1) {
       // hit, mark the brick as broken
       bricks[row][col] = 0;
       return true;
@@ -36,14 +36,14 @@ class Wall {
 
   bool draw() {
     var count = 0;
-    for (var i = 0; i < NROWS; i++) {
-      for (var j = 0; j < NCOLS; j++) {
+    for (var i = 0; i < rowCount; i++) {
+      for (var j = 0; j < colCount; j++) {
         if (bricks[i][j] == 1) {
           rectangle(
             board.context,
-            (j * (brickWidth + PADDING)) + PADDING,
-            (i * (BRICK_HEIGHT + PADDING)) + PADDING,
-            brickWidth, BRICK_HEIGHT,
+            (j * (brickWidth + padding)) + padding,
+            (i * (brickHeight + padding)) + padding,
+            brickWidth, brickHeight,
             brickRowColors[i]);
           count++;
         }

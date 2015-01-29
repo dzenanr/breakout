@@ -5,7 +5,7 @@ Map<String, String> colorMap() {
     'azure':      '#f0ffff',
     'beer':       '#fbb117',
     'beige':      '#f5f5dc',
-    'blue':       '#0000ff' ,
+    'blue':       '#0000ff',
     'brown':      '#963939',
     'chocolate':  '#d2691e',
     'coral':      '#ff7f50',
